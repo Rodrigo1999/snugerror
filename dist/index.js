@@ -146,7 +146,7 @@ function handleError(errorsDictionary, errors) {
  *  import snugerror from 'snugerror'
     export const handleError = snugerror.create({
         dictionary: {
-            'E001'() => 'ERRO 1',
+            'E001': () => 'ERRO 1',
             'E002': (name) => 'ERRO: '+name,
             'E003': () => 'ERRO 3 here',
         },
