@@ -1,0 +1,44 @@
+{
+  "name": "niceerror",
+  "version": "0.0.1",
+  "description": "Niceerror is a library that facilitates the handling of errors in a given routine; was raised aimed at separating the code focused on business rules and error checking.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "niceerror",
+    "nice-error",
+    "errors",
+    "error",
+    "handle-error",
+    "handleerror",
+    "node-error",
+    "node",
+    "verify-error",
+    "check-error",
+    "veridyerror",
+    "onerror",
+    "custom-error",
+    "exception-error",
+    "trhow-error",
+    "trhow"
+  ],
+  "author": "Rodrigo Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rodrigo1999/niceerror/issues"
+  },
+  "homepage": "https://rodrigo1999.github.io/niceerror",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rodrigo1999/niceerror.git"
+  },
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}
