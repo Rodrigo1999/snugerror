@@ -1,16 +1,16 @@
 # Niceerror
 
 <p>
-    Niceerror é uma biblioteca que facilita as tratativas de erros de uma determinada rotina, ela foi criada
-    visando a separação do código voltado para regras de negócio e checkagem de erros.
+    Niceerror is a library that facilitates the handling of errors of a certain routine, it was created
+    aimed at separating the code focused on business rules and error checking.
 </p>
 
 <p>
-    Muitas vezes precisamos escrever rotinas grandes de validação de dados para lançamentos de erros, e isso acaba se misturando com as rotinas voltadas
-    para regras de negócio, tornando a leitura do código ruim. Essa realidade impulsionou a escrita desta biblioteca.
+    We often need to write large data validation routines to throw errors, and this ends up getting mixed up with routines aimed at
+    for business rules, making code reading bad. This reality drove the writing of this library.
 </p>
 
-# Instalação:
+# Installation:
 
 ```bash
 npm install niceerror
@@ -18,11 +18,11 @@ npm install niceerror
 yarn add niceerror
 ```
 
-## Métodos:
+## Methods:
 
-### Exemplo básico com método next:
+### Basic example with next method:
 
-Aciona a próxima instrução para verificação de erro, inicia-se na posição 0 do array.
+Triggers the next instruction for error checking, starts at position 0 of the array.
 
 `.next(...args)`
 
@@ -31,15 +31,15 @@ import handleError from 'niceerror'
 
 let errors = handleError([
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) throw new Error('You error: error 1')
     },
     function(a, b){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (a !== b) throw new Error('Values is not equals')
     },
     (data) => {
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if(!data?.name) throw new Error('Type your name')
     }
 ])
@@ -65,15 +65,15 @@ app.get("/", (req, res) => {
 
     iterator.next(data)
 
-    res.send('Hello World') // Essa resposta não será entregue
+    res.send('Hello World') // This answer will not be delivered
 });
 ```
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Método repeatNext:
+### Method repeatNext:
 
-Repete a execução .next() a uma certa quantidade de vezes passada como argumento.
+Repeats execution of .next() a certain number of times passed as an argument.
 
 `.repeatNext(total_repeat)(...args)`
 
@@ -82,15 +82,15 @@ import handleError from 'niceerror'
 
 let errors = handleError([
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) throw new Error('You error: error 1')
     },
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (data.a !== data.b) throw new Error('Values is not equals')
     },
     (data) => {
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if(!data?.name) throw new Error('Type yout name')
     }
 ])
@@ -106,17 +106,17 @@ app.get("/", (req, res) => {
         name: null
     }
 
-    iterator.repeatNext(3)(data) // Irá iterar na função 0, 1 e 2 do array
+    iterator.repeatNext(3)(data) // Will iterate over function 0, 1 and 2 of the array
 
-    res.send('Hello World') // Essa resposta não será entregue
+    res.send('Hello World') // This answer will not be delivered
 });
 ```
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Método error:
+### Error method:
 
-Retorna um erro de uma posição específica, ou de uma função específica.
+Returns an error from a specific position, or from a specific function.
 
 `.error(<position>)(...args)` <br/>
 `.error(<name_function>)(...args)` <br/>
@@ -126,15 +126,15 @@ import handleError from 'niceerror'
 
 let errors = handleError([
     function (data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) throw new Error('You error: error 1')
     },
     function check_id_user (data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if(!data?.id) throw new Error('User id is not valid')
     },
     (a, b) => {
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         
         if (a !== b) throw new Error('Values is not equals')
     }    
@@ -157,7 +157,7 @@ app.get("/", (req, res) => {
 
     iterator.error('check_id_user')(data) // will launch <Error: 'User id is not valid'>
 
-    res.send('Hello World') // Essa resposta não será entregue
+    res.send('Hello World') // This answer will not be delivered
 });
 ```
 <hr/>
@@ -165,9 +165,9 @@ app.get("/", (req, res) => {
 
 <div id='message-method'>
 
-### Método message:
+### Message method:
 
-Passa uma mensagem para o contexto da função.
+Passes a message to the function context.
 
 `.message(<your message error>).error` <br/>
 `.message(<your message error>).next` <br/>
@@ -178,15 +178,15 @@ import handleError from 'niceerror'
 
 let errors = handleError([
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) throw new Error(this.message || 'Failed operation') // will launch <Error:  'You error: error 1'>
     },
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) throw new Error(this.message || 'Failed operation') // will launch <Error:  'this is error 2'>
     },
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) throw new Error(this.message || 'Failed operation') // will launch <Error:  'this is error 3'>
     },
 ])
@@ -200,31 +200,31 @@ app.get("/", (req, res) => {
     iterator.message('You error: error 1').error(0)(undefined)
     iterator.message(['this is error 2', 'this is error 3']).repeatNext(2)(undefined) 
 
-    res.send('Hello World') // Essa resposta não será entregue
+    res.send('Hello World') // This answer will not be delivered
 });
 ```
 <hr/>
 </div>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Método errors:
+### Method errors:
 
-Retorna uma lista de erros emitido até a chamada dessa função.
+Returns a list of errors issued up to the call of this function.
 
 ```js
 import handleError from 'niceerror'
 
 let errors = handleError([
     function (data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) throw new Error('You error: error 1')
     },
     function check_id_user (a, b){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if(!data?.id) throw new Error('User id is not valid')
     },
     (data) => {
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (a !== b) throw new Error('Values is not equals')
     }    
 ])
@@ -248,11 +248,11 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Atributos:
+## Attributes:
 
-### Passagem de parâmetros: `this.params`
+### Parameter passing: `this.params`
 
-Passa os parâmetros no construtor
+Pass parameters in constructor.
 
 ```js
 import handleError from 'niceerror'
@@ -283,16 +283,16 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Retorno de mensagem: `this.message`
+### Return message: `this.message`
 
-Retorna a mensagem passada na emissão do erro, veja <a href="#message-method">Método message</a>
+Returns the message passed when the error was issued, see <a href="#message-method">message method</a>
 
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Nome da tratativa de erro/função: `this.errorName`
+### Error handler/function name: `this.errorName`
 
-Retorna o nome da função lançadora de exceção, ou seja, o nome da tratativa de erro/função se preferir.
+Returns the name of the exception-throwing function, ie the name of the error/function handle if you prefer.
 
 ```js
 import handleError from 'niceerror'
@@ -318,9 +318,9 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Retorno de métodos: `this.methods`
+### Method return: `this.methods`
 
-Retorna todos os métodos
+Returns all methods.
 
 ```js
 import handleError from 'niceerror'
@@ -342,9 +342,9 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Atributo trhow: `this.throw`
+### Throw attribute: `this.throw`
 
-Lança uma excessão.
+Throw an exception.
 
 `this.throw(<error_name>, <error_message>)` <br/>
 or <br/>
@@ -387,9 +387,9 @@ app.get("/", (req, res) => {
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
 
-## Outras configurações:
+## Other settings:
 
-### Erros com dicionário:
+### Dictionary errors:
 
 ```js
 import handleError from 'niceerror'
@@ -399,15 +399,15 @@ let errors = handleError({
     'E002': (a, b) => `Values is not equals: ${a} !== ${b}`
 }, [
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) this.throw('E001') // will launch <E001: 'Example error 1'>
     },
     function(a, b){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (a !== b) this.throw('E002', a, b) // will launch <E002: 'Values is not equals: 1 !== 3'>
     },
     (data) => {
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if(!data?.name) throw new Error('Type yout name') // will launch <Error: 'Type yout name'>
     }
 ])
@@ -433,15 +433,15 @@ app.get("/", (req, res) => {
 
     iterator.next(data)
 
-    res.send('Hello World') // Essa resposta não será entregue
+    res.send('Hello World') // This answer will not be delivered
 });
 ```
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Método create:
+### Create method:
 
-Dessa forma é possível configurar um dicionário de mensagem de erros e um ouvinte de excessões.
+In this way it is possible to configure an error message dictionary and an exception listener.
 
 ```js
 
@@ -463,15 +463,15 @@ export const handleError = create({
 
 let errors = handleError([
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) this.throw('E001') // will launch <E001: 'Example error 1'> Obs.: error by dictionary in config.ts
     },
     function(a, b){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (a !== b) this.throw('E002', a, b) // will launch <E002: 'Values is not equals: 1 !== 3'> Obs.: error by dictionary in config.ts
     },
     (data) => {
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if(!data?.name) throw new Error('Type yout name') // will launch <Error: 'Type yout name'>
     }
 ])
@@ -497,15 +497,15 @@ app.get("/", (req, res) => {
 
     iterator.next(data)
 
-    res.send('Hello World') // Essa resposta não será entregue
+    res.send('Hello World') // This answer will not be delivered
 });
 ```
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Método create e dicionário local:
+### Create method and local dictionary:
 
-É possível rescrever certos items do dicionário caso eu passe um dicionário local.
+It is possible to rewrite certain dictionary items if I pass a local dictionary.
 
 ```js
 
@@ -530,15 +530,15 @@ let errors = handleError({
     'OTHER': (a, b) => `Hello, data are bad`,
 },[
     function(data){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (!data) this.throw('E001') // will launch <E001: 'Example error 1, hello i am a local error'> Obs.: error by local dictionary
     },
     function(a, b){
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if (a !== b) this.throw('E002', a, b) // will launch <E002: 'Values is not equals: 1 !== 3'> Obs.: error by dictionary in config.ts
     },
     (data) => {
-        // Sua rotina para validação dos dados aqui
+        // Your routine for data validation here
         if(!data?.name) this.throw('OTHER') // will launch <OTHER: 'Hello, data are bad'>
     }
 ])
@@ -564,7 +564,7 @@ app.get("/", (req, res) => {
 
     iterator.next(data)
 
-    res.send('Hello World') // Essa resposta não será entregue
+    res.send('Hello World') // This answer will not be delivered
 });
 ```
 <hr/>

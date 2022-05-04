@@ -2,7 +2,7 @@
 export interface ReturnInterator{
     /**
      *  
-     * Aciona a próxima instrução para verificação de erro, inicia-se na posição 0 do array.
+     * Triggers the next instruction for error checking, starts at position 0 of the array.
      * @example 
      * 
      * 
@@ -32,7 +32,7 @@ export interface ReturnInterator{
     */
     next: Function,
     /**
-     * Retorna uma lista de erros emitido até a chamada dessa função.
+     * Returns a list of errors issued up to the call of this function.
      * @example 
      * 
      * 
@@ -65,7 +65,7 @@ export interface ReturnInterator{
     */
     errors: Array<Error>,
     /**
-     * Repete a execução .next() a uma certa quantidade de vezes passada como argumento.
+     * Repeats execution of .next() a certain number of times passed as an argument.
      * @example 
      * 
      * 
@@ -95,7 +95,7 @@ export interface ReturnInterator{
     */
     repeatNext: (repeatCount: number) => (...args: any) => never,
     /**
-     * Passa uma mensagem para o contexto das funções
+     * Passes a message to the functions context
      * @example 
      * 
      * 
@@ -114,7 +114,7 @@ export interface ReturnInterator{
     */
     message: (message: string | number | string[]) => ReturnInterator,
     /**
-     * Retorna um erro de uma posição específica, ou de uma função específica: `.error(<position>, ...args)`
+     * Returns an error from a specific position, or from a specific function: `.error(<position>, ...args)`
      * @example 
      * 
      * 
@@ -147,7 +147,7 @@ export interface ReturnInterator{
 export interface contextFunctions{
     methods: ReturnInterator,
     /**
-     * Lança uma excessão 
+     * throws an exception
      * @example 
      * 
      * 
@@ -184,7 +184,7 @@ export interface contextFunctions{
     */
     throw: (code: string, ...args: any) => never,
      /**
-     * Passa os parâmetros no construtor
+     * Pass parameters in constructor
      * @example 
      * 
      * 
@@ -204,7 +204,7 @@ export interface contextFunctions{
     */
     params: Array<any>,
     /**
-     * Retorna a mensagem passada na emissão do erro
+     * Returns the message passed when issuing the error
      * @example 
      * 
      * 
@@ -223,7 +223,7 @@ export interface contextFunctions{
     */
     message: string | number | string[],
     /**
-     * Retorna o nome da função lançadora de exceção, ou seja, o nome da tratativa de erro/função se preferir.
+     * Returns the name of the exception-throwing function, ie the name of the error/function handle if you prefer.
      * @example 
      * 
      * 
@@ -250,7 +250,7 @@ export interface FunctionsObject {
 export interface createData {
     /**
      * 
-     * Cria um dicionário por padrão.
+     * Creates a dictionary by default.
      * @example 
      * 
      * //----------------config.ts-------------------------------
@@ -266,7 +266,7 @@ export interface createData {
     dictionary?: FunctionsObject,
     /**
      * 
-     * Função de callback para ouvir os lançamentos de excessões.
+     * Callback function to listen for exceptions thrown.
      * @example 
      * 
      * //----------------config.ts-------------------------------
