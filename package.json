@@ -1,6 +1,6 @@
 {
   "name": "snugerror",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Snugerror is a library that facilitates the handling of errors in a given routine; was raised aimed at separating the code focused on business rules and error checking.",
   "main": "./dist/index.js",
   "scripts": {
