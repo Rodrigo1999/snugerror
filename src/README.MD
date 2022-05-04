@@ -11,9 +11,9 @@ npm install niceerror
 yarn add niceerror
 ```
 
-# Métodos:
+## Métodos:
 
-## Exemplo básico com método next:
+### Exemplo básico com método next:
 
 Aciona a próxima instrução para verificação de erro, inicia-se na posição 0 do array.
 
@@ -33,7 +33,7 @@ let errors = handleError([
     },
     (data) => {
         // Sua rotina para validação dos dados aqui
-        if(!data?.name) throw new Error('Type yout name')
+        if(!data?.name) throw new Error('Type your name')
     }
 ])
 
@@ -64,7 +64,7 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Método repeatNext:
+### Método repeatNext:
 
 Repete a execução .next() a uma certa quantidade de vezes passada como argumento.
 
@@ -107,7 +107,7 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Método error:
+### Método error:
 
 Retorna um erro de uma posição específica, ou de uma função específica.
 
@@ -144,11 +144,11 @@ app.get("/", (req, res) => {
         name: null
     }
     
-    iterator.error(0)(data) // will launch <Error:  'You error: error 1'>
+    iterator.error(0)(data) // will launch <Error: 'You error: error 1'>
 
-    iterator.error(2)(data.a, data.b) // will launch error 'Values is not equals'
+    iterator.error(2)(data.a, data.b) // will launch <Error: 'Values is not equals'>
 
-    iterator.error('check_id_user')(data) // will launch <Error:  'User id is not valid'>
+    iterator.error('check_id_user')(data) // will launch <Error: 'User id is not valid'>
 
     res.send('Hello World') // Essa resposta não será entregue
 });
@@ -158,7 +158,7 @@ app.get("/", (req, res) => {
 
 <div id='message-method'>
 
-## Método message:
+### Método message:
 
 Passa uma mensagem para o contexto da função.
 
@@ -200,7 +200,7 @@ app.get("/", (req, res) => {
 </div>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Método errors:
+### Método errors:
 
 Retorna uma lista de erros emitido até a chamada dessa função.
 
@@ -241,9 +241,9 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-# Atributos:
+## Atributos:
 
-## Passagem de parâmetros: `this.params`
+### Passagem de parâmetros: `this.params`
 
 Passa os parâmetros no construtor
 
@@ -276,14 +276,14 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Retorno de mensagem: `this.message`
+### Retorno de mensagem: `this.message`
 
 Retorna a mensagem passada na emissão do erro, veja <a href="#message-method">Método message</a>
 
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Nome da tratativa de erro/função: `this.errorName`
+### Nome da tratativa de erro/função: `this.errorName`
 
 Retorna o nome da função lançadora de exceção, ou seja, o nome da tratativa de erro/função se preferir.
 
@@ -311,7 +311,7 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Retorno de métodos: `this.methods`
+### Retorno de métodos: `this.methods`
 
 Retorna todos os métodos
 
@@ -335,7 +335,7 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Atributo trhow: `this.trhow`
+### Atributo trhow: `this.trhow`
 
 Lança uma excessão.
 
@@ -380,9 +380,9 @@ app.get("/", (req, res) => {
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
 
-# Outras configurações:
+## Outras configurações:
 
-## Erros com dicionário:
+### Erros com dicionário:
 
 ```js
 import handleError from 'niceerror'
@@ -432,7 +432,7 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Método create:
+### Método create:
 
 Dessa forma é possível configurar um dicionário de mensagem de erros e um ouvinte de excessões.
 
@@ -496,7 +496,7 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Método create e dicionário local:
+### Método create e dicionário local:
 
 É possível rescrever certos items do dicionário caso eu passe um dicionário local.
 
