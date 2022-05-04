@@ -7,8 +7,8 @@ function CustomError(name?: string, message?: string) {
     var instance = new Error(message);
     instance.name = name || instance.name;
     Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
-    if (Error.captureStackTrace) {
-        Error.captureStackTrace(instance, CustomError);
+    if (Error && (Error as any).captureStackTrace) {
+        (Error as any).captureStackTrace(instance, CustomError);
     }
     return instance;
 }

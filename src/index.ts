@@ -8,7 +8,7 @@ import {ReturnInterator, contextFunctions, FunctionsObject, createData, Errors} 
  * 
  * 
     //----------------any-file.ts-------------------------------
-    import handleError from 'niceerror'
+    import handleError from 'snugerror'
     let errors = handleError({
         'E001': () => 'ERRO 1 local',
         'E002': (name) => 'ERRO '+name+' local'
@@ -28,9 +28,9 @@ import {ReturnInterator, contextFunctions, FunctionsObject, createData, Errors} 
 
  */
 
-function niceError(errorsDictionary: Errors): (...others: any) => ReturnInterator 
-function niceError(errorsDictionary: FunctionsObject, errors: Errors): (...others: any) => ReturnInterator 
-function niceError(errorsDictionary: FunctionsObject | Errors, errors?: Errors): (...others: any) => ReturnInterator {
+function handleError(errorsDictionary: Errors): (...others: any) => ReturnInterator 
+function handleError(errorsDictionary: FunctionsObject, errors: Errors): (...others: any) => ReturnInterator 
+function handleError(errorsDictionary: FunctionsObject | Errors, errors?: Errors): (...others: any) => ReturnInterator {
 
     const createContext = this || {}
 
@@ -129,7 +129,7 @@ function niceError(errorsDictionary: FunctionsObject | Errors, errors?: Errors):
  * @example 
  * 
  * //----------------config.ts-------------------------------
- *  import {create} from 'niceerror'
+ *  import {create} from 'snugerror'
     export const handleError = create({
         dictionary: {
             'E001'() => 'ERRO 1',
@@ -142,5 +142,5 @@ function niceError(errorsDictionary: FunctionsObject | Errors, errors?: Errors):
     })
 
  */
-export const create = (data: createData) => niceError.bind(data)
-export default niceError
+export const create = (data: createData) => handleError.bind(data)
+export default handleError

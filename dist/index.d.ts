@@ -5,7 +5,7 @@ import { ReturnInterator, FunctionsObject, createData, Errors } from './types';
  *
  *
     //----------------any-file.ts-------------------------------
-    import handleError from 'niceerror'
+    import handleError from 'snugerror'
     let errors = handleError({
         'E001': () => 'ERRO 1 local',
         'E002': (name) => 'ERRO '+name+' local'
@@ -24,14 +24,14 @@ import { ReturnInterator, FunctionsObject, createData, Errors } from './types';
     const iterator = errors()
 
  */
-declare function niceError(errorsDictionary: Errors): (...others: any) => ReturnInterator;
-declare function niceError(errorsDictionary: FunctionsObject, errors: Errors): (...others: any) => ReturnInterator;
+declare function handleError(errorsDictionary: Errors): (...others: any) => ReturnInterator;
+declare function handleError(errorsDictionary: FunctionsObject, errors: Errors): (...others: any) => ReturnInterator;
 /**
  *
  * @example
  *
  * //----------------config.ts-------------------------------
- *  import {create} from 'niceerror'
+ *  import {create} from 'snugerror'
     export const handleError = create({
         dictionary: {
             'E001'() => 'ERRO 1',
@@ -44,5 +44,5 @@ declare function niceError(errorsDictionary: FunctionsObject, errors: Errors): (
     })
 
  */
-export declare const create: (data: createData) => typeof niceError;
-export default niceError;
+export declare const create: (data: createData) => typeof handleError;
+export default handleError;

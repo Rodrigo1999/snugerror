@@ -1,7 +1,7 @@
 {
-  "name": "niceerror",
+  "name": "snugerror",
   "version": "0.0.1",
-  "description": "Niceerror is a library that facilitates the handling of errors in a given routine; was raised aimed at separating the code focused on business rules and error checking.",
+  "description": "Snugerror is a library that facilitates the handling of errors in a given routine; was raised aimed at separating the code focused on business rules and error checking.",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc"
@@ -10,8 +10,8 @@
     "dist"
   ],
   "keywords": [
-    "niceerror",
-    "nice-error",
+    "snugerror",
+    "snug-error",
     "errors",
     "error",
     "handle-error",
@@ -30,12 +30,12 @@
   "author": "Rodrigo Santos",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rodrigo1999/niceerror/issues"
+    "url": "https://github.com/Rodrigo1999/snugerror/issues"
   },
-  "homepage": "https://rodrigo1999.github.io/niceerror",
+  "homepage": "https://rodrigo1999.github.io/snugerror",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rodrigo1999/niceerror.git"
+    "url": "git+https://github.com/Rodrigo1999/snugerror.git"
   },
   "types": "./dist/index.d.ts",
   "devDependencies": {

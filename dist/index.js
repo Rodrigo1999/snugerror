@@ -45,7 +45,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.create = void 0;
 var utils = __importStar(require("./utils"));
-function niceError(errorsDictionary, errors) {
+function handleError(errorsDictionary, errors) {
     var createContext = this || {};
     if (errorsDictionary && !errors && !createContext.dictionary) {
         errors = errorsDictionary;
@@ -145,7 +145,7 @@ function niceError(errorsDictionary, errors) {
  * @example
  *
  * //----------------config.ts-------------------------------
- *  import {create} from 'niceerror'
+ *  import {create} from 'snugerror'
     export const handleError = create({
         dictionary: {
             'E001'() => 'ERRO 1',
@@ -158,6 +158,6 @@ function niceError(errorsDictionary, errors) {
     })
 
  */
-var create = function (data) { return niceError.bind(data); };
+var create = function (data) { return handleError.bind(data); };
 exports.create = create;
-exports.default = niceError;
+exports.default = handleError;

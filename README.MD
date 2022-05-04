@@ -1,7 +1,7 @@
-# Niceerror
+# Snugerror
 
 <p>
-    Niceerror is a library that facilitates the handling of errors of a certain routine, it was created
+    Snugerror is a library that facilitates the handling of errors of a certain routine, it was created
     aimed at separating the code focused on business rules and error checking.
 </p>
 
@@ -13,9 +13,9 @@
 # Installation:
 
 ```bash
-npm install niceerror
+npm install snugerror
 # or
-yarn add niceerror
+yarn add snugerror
 ```
 
 ## Methods:
@@ -27,7 +27,7 @@ Triggers the next instruction for error checking, starts at position 0 of the ar
 `.next(...args)`
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function(data){
@@ -78,7 +78,7 @@ Repeats execution of .next() a certain number of times passed as an argument.
 `.repeatNext(total_repeat)(...args)`
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function(data){
@@ -122,7 +122,7 @@ Returns an error from a specific position, or from a specific function.
 `.error(<name_function>)(...args)` <br/>
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function (data){
@@ -174,7 +174,7 @@ Passes a message to the function context.
 `.message([<your message error 1>, <your message error 2>]).repeatNext` <br/>
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function(data){
@@ -212,7 +212,7 @@ app.get("/", (req, res) => {
 Returns a list of errors issued up to the call of this function.
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function (data){
@@ -255,7 +255,7 @@ app.get("/", (req, res) => {
 Pass parameters in constructor.
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function(data){
@@ -295,7 +295,7 @@ Returns the message passed when the error was issued, see <a href="#message-meth
 Returns the name of the exception-throwing function, ie the name of the error/function handle if you prefer.
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function check_payment(data){
@@ -323,7 +323,7 @@ app.get("/", (req, res) => {
 Returns all methods.
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function (data){
@@ -351,7 +351,7 @@ or <br/>
 `this.throw(<error_message>)`
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError([
     function (data) {
@@ -392,7 +392,7 @@ app.get("/", (req, res) => {
 ### Dictionary errors:
 
 ```js
-import handleError from 'niceerror'
+import handleError from 'snugerror'
 
 let errors = handleError({
     'E001': () => 'Example error 1',
@@ -446,7 +446,7 @@ In this way it is possible to configure an error message dictionary and an excep
 ```js
 
 //----------------config.ts-------------------------------
-import {create} from 'niceerror'
+import {create} from 'snugerror'
 
 export const handleError = create({
     dictionary: {
@@ -510,7 +510,7 @@ It is possible to rewrite certain dictionary items if I pass a local dictionary.
 ```js
 
 //----------------config.ts-------------------------------
-import {create} from 'niceerror'
+import {create} from 'snugerror'
 
 export const handleError = create({
     dictionary: {

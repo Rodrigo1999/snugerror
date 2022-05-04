@@ -7,7 +7,7 @@ export interface ReturnInterator{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError({
             'E001': () => 'ERRO 1 local',
@@ -37,7 +37,7 @@ export interface ReturnInterator{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError({
             'E001': () => 'ERRO 1 local',
@@ -70,7 +70,7 @@ export interface ReturnInterator{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError({
             'E001': () => 'ERRO 1 local',
@@ -100,7 +100,7 @@ export interface ReturnInterator{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError([
             function (data) {
@@ -119,7 +119,7 @@ export interface ReturnInterator{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError([
             function (data) {
@@ -152,7 +152,7 @@ export interface contextFunctions{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError([
             function (data) {
@@ -189,7 +189,7 @@ export interface contextFunctions{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError([
             function (data) {
@@ -209,7 +209,7 @@ export interface contextFunctions{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError([
             function (data) {
@@ -228,7 +228,7 @@ export interface contextFunctions{
      * 
      * 
         //----------------any-file.ts-------------------------------
-        import handleError from 'niceerror'
+        import handleError from 'snugerror'
 
         let errors = handleError([
             function error_on_payment (data) {
@@ -254,7 +254,7 @@ export interface createData {
      * @example 
      * 
      * //----------------config.ts-------------------------------
-     *  import {create} from 'niceerror'
+     *  import {create} from 'snugerror'
         export const handleError = create({
             dictionary: {
                 'E001'() => 'ERRO 1',
@@ -270,7 +270,7 @@ export interface createData {
      * @example 
      * 
      * //----------------config.ts-------------------------------
-     *  import {create} from 'niceerror'
+     *  import {create} from 'snugerror'
         export const handleError = create({
             onError(error){
                 console.log(error.name, error.message)
