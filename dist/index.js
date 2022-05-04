@@ -42,8 +42,6 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.create = void 0;
 var utils = __importStar(require("./utils"));
 function handleError(errorsDictionary, errors) {
     var createContext = this || {};
@@ -145,8 +143,8 @@ function handleError(errorsDictionary, errors) {
  * @example
  *
  * //----------------config.ts-------------------------------
- *  import {create} from 'snugerror'
-    export const handleError = create({
+ *  import snugerror from 'snugerror'
+    export const handleError = snugerror.create({
         dictionary: {
             'E001'() => 'ERRO 1',
             'E002': (name) => 'ERRO: '+name,
@@ -159,5 +157,5 @@ function handleError(errorsDictionary, errors) {
 
  */
 var create = function (data) { return handleError.bind(data); };
-exports.create = create;
-exports.default = handleError;
+handleError.create = create;
+module.exports = handleError;

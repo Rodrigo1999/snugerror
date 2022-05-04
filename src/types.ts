@@ -254,8 +254,8 @@ export interface createData {
      * @example 
      * 
      * //----------------config.ts-------------------------------
-     *  import {create} from 'snugerror'
-        export const handleError = create({
+     *  import snugerror from 'snugerror'
+        export const handleError = snugerror.create({
             dictionary: {
                 'E001'() => 'ERRO 1',
                 'E002': (name) => 'ERRO: '+name,
@@ -270,8 +270,8 @@ export interface createData {
      * @example 
      * 
      * //----------------config.ts-------------------------------
-     *  import {create} from 'snugerror'
-        export const handleError = create({
+     *  import snugerror from 'snugerror'
+        export const handleError = snugerror.create({
             onError(error){
                 console.log(error.name, error.message)
             }

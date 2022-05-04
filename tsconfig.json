@@ -1,11 +1,10 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "commonjs",
+        "module": "CommonJS",
         "lib": [
-            "dom",
-            "dom.iterable",
-            "ES2019"
+            "ES2019",
+            "DOM"
         ],
         "rootDir": "src",
         "outDir": "dist",
@@ -18,13 +17,12 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
-        "moduleResolution": "node",
+        "moduleResolution": "Node",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": false,
         "declaration": true,
-        "removeComments": false,
-        "jsx": "react-jsx"
+        "removeComments": false
     },
     "include": [
         "src/**/*"

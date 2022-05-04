@@ -26,23 +26,7 @@ import { ReturnInterator, FunctionsObject, createData, Errors } from './types';
  */
 declare function handleError(errorsDictionary: Errors): (...others: any) => ReturnInterator;
 declare function handleError(errorsDictionary: FunctionsObject, errors: Errors): (...others: any) => ReturnInterator;
-/**
- *
- * @example
- *
- * //----------------config.ts-------------------------------
- *  import {create} from 'snugerror'
-    export const handleError = create({
-        dictionary: {
-            'E001'() => 'ERRO 1',
-            'E002': (name) => 'ERRO: '+name,
-            'E003': () => 'ERRO 3 here',
-        },
-        onError(error){
-            console.log(error.name, error.message)
-        }
-    })
-
- */
-export declare const create: (data: createData) => typeof handleError;
-export default handleError;
+declare namespace handleError {
+    var create: (data: createData) => typeof handleError;
+}
+export = handleError;

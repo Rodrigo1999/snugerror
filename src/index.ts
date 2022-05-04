@@ -129,8 +129,8 @@ function handleError(errorsDictionary: FunctionsObject | Errors, errors?: Errors
  * @example 
  * 
  * //----------------config.ts-------------------------------
- *  import {create} from 'snugerror'
-    export const handleError = create({
+ *  import snugerror from 'snugerror'
+    export const handleError = snugerror.create({
         dictionary: {
             'E001'() => 'ERRO 1',
             'E002': (name) => 'ERRO: '+name,
@@ -142,5 +142,6 @@ function handleError(errorsDictionary: FunctionsObject | Errors, errors?: Errors
     })
 
  */
-export const create = (data: createData) => handleError.bind(data)
-export default handleError
+const create = (data: createData) => handleError.bind(data)
+handleError.create = create
+export = handleError

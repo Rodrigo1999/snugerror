@@ -446,9 +446,9 @@ In this way it is possible to configure an error message dictionary and an excep
 ```js
 
 //----------------config.ts-------------------------------
-import {create} from 'snugerror'
+import snugerror from 'snugerror'
 
-export const handleError = create({
+export const handleError = snugerror.create({
     dictionary: {
         'E001': () => 'Example error 1',
         'E002': (a, b) => `Values is not equals: ${a} !== ${b}`
@@ -510,9 +510,9 @@ It is possible to rewrite certain dictionary items if I pass a local dictionary.
 ```js
 
 //----------------config.ts-------------------------------
-import {create} from 'snugerror'
+import snugerror from 'snugerror'
 
-export const handleError = create({
+export const handleError = snugerror.create({
     dictionary: {
         'E001': () => 'Example error 1',
         'E002': (a, b) => `Values is not equals: ${a} !== ${b}`
