@@ -1,7 +1,14 @@
 # Niceerror
 
-Niceerror é uma biblioteca que facilita as tratativas de erros de uma determinada rotina, ela foi criada
-visando a separação do código voltado para regras de negócio e checkagem de erros.
+<p>
+    Niceerror é uma biblioteca que facilita as tratativas de erros de uma determinada rotina, ela foi criada
+    visando a separação do código voltado para regras de negócio e checkagem de erros.
+</p>
+
+<p>
+    Muitas vezes precisamos escrever rotinas grandes de validação de dados para lançamentos de erros, e isso acaba se misturando com as rotinas voltadas
+    para regras de negócio, tornando a leitura do código ruim. Essa realidade impulsionou a escrita desta biblioteca.
+</p>
 
 # Instalação:
 
@@ -319,7 +326,7 @@ Retorna todos os métodos
 import handleError from 'niceerror'
 
 let errors = handleError([
-    function check_payment(data){
+    function (data){
         console.log(this.methods) // {next, repeatNext, error, errors, message}
         ...
     }
@@ -335,20 +342,20 @@ app.get("/", (req, res) => {
 <hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-### Atributo trhow: `this.trhow`
+### Atributo trhow: `this.throw`
 
 Lança uma excessão.
 
-`this.trhow(<error_name>, <error_message>)` <br/>
+`this.throw(<error_name>, <error_message>)` <br/>
 or <br/>
-`this.trhow(<error_message>)`
+`this.throw(<error_message>)`
 
 ```js
 import handleError from 'niceerror'
 
 let errors = handleError([
     function (data) {
-        if (!data?.name) this.throw('E001', 'Here is a error') // `E001: Here is a error` instead of `Error: Here is a error`
+        if (!data?.name) this.throw('E001', 'Here is a error') // <E001: Here is a error> instead of <Error: Here is a error>
     }
 ])
 
@@ -356,7 +363,7 @@ let errors = handleError([
 
 let errors = handleError([
     function (data) {
-        if (!data?.name) this.throw('Here is a error') // `Error: Here is a error`
+        if (!data?.name) this.throw('Here is a error') // <Error: Here is a error>
     }
 ])
 
@@ -366,7 +373,7 @@ let errors = handleError({
     'E001': (foo) => 'erro 1 '+foo
 }, [
     function (data) {
-        if (!data?.name) this.throw('E001', 'here') // `E001: erro 1 here`
+        if (!data?.name) this.throw('E001', 'here') // <E001: erro 1 here>
     }
 ])
 ...

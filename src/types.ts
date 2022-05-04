@@ -223,7 +223,7 @@ export interface contextFunctions{
     */
     message: string | number | string[],
     /**
-     * Retorna o nome da função lançadora de exceção, ou seja, o nome do erro/função se preferir.
+     * Retorna o nome da função lançadora de exceção, ou seja, o nome da tratativa de erro/função se preferir.
      * @example 
      * 
      * 
