@@ -1,6 +1,6 @@
 {
   "name": "snugerror",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Snugerror is a library that facilitates the handling of errors in a given routine; was raised aimed at separating the code focused on business rules and error checking.",
   "main": "./dist/index.js",
   "scripts": {
@@ -32,7 +32,6 @@
   "bugs": {
     "url": "https://github.com/Rodrigo1999/snugerror/issues"
   },
-  "homepage": "https://rodrigo1999.github.io/snugerror",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rodrigo1999/snugerror.git"
