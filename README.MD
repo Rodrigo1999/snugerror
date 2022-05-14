@@ -250,7 +250,7 @@ app.get("/", (req, res) => {
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 ### Method checkAll:
 
-Returns a list of errors issued up to the call of this function.
+Cycles through all error handling functions.
 
 ```js
 import handleError from 'snugerror'
