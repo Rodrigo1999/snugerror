@@ -74,8 +74,9 @@ function handleError(errorsDictionary: FunctionsObject | Errors, errors?: Errors
                     methods: {
                         next: this.next.bind(_this),
                         repeatNext: this.repeatNext.bind(_this),
-                        message: _this.message,
                         error: this.error.bind(_this),
+                        checkAll: this.checkAll.bind(_this),
+                        message: _this.message,
                         errors: this.errors
                     },
                     throw: methods.throw
@@ -116,6 +117,11 @@ function handleError(errorsDictionary: FunctionsObject | Errors, errors?: Errors
             if(!(position >= 0)) throw new Error(`Invalid position: ${positionName}`)
 
             return this.next.apply({params: others, ...methods, ...this, position}, args)
+        }
+        this.checkAll = function(...args){
+            errors?.forEach(() => {
+                this.next.apply({...this, message: this.message}, args)
+            })
         }
 
         return this

@@ -246,6 +246,40 @@ app.get("/", (req, res) => {
 });
 ```
 <hr/>
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
+### Method checkAll:
+
+Returns a list of errors issued up to the call of this function.
+
+```js
+import handleError from 'snugerror'
+
+let errors = handleError([
+    function (data){
+        // Your routine for data validation here
+        if (!data) throw new Error('You error: error 1')
+    },
+    function check_id_user (a, b){
+        // Your routine for data validation here
+        if(!data?.id) throw new Error('User id is not valid')
+    },
+    (data) => {
+        // Your routine for data validation here
+        if (a !== b) throw new Error('Values is not equals')
+    }    
+])
+
+...
+
+app.get("/", (req, res) => {
+    
+    const iterator = errors()
+    iterator.checkAll(undefined)
+    ...
+});
+```
+<hr/>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
 ## Attributes:
