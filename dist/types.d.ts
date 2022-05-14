@@ -141,6 +141,33 @@ export interface ReturnInterator {
         iterator.error('Error_on_payment')(undefined) // will launch 'Error on payment'
     */
     error: (position: string | number) => (...args: any) => never;
+    /**
+     * Cycles through all error handling functions.
+     * @example
+     *
+     *
+        //----------------any-file.ts-------------------------------
+        import handleError from 'snugerror'
+
+        let errors = handleError([
+            function (data) {
+                if (!data) throw new Error(this.message) // will launch 'Hello World'
+            },
+            () => {
+                throw new Error('Error 2')
+            },
+            function Error_3(a, b) {
+                if (a !== b) throw new Error('Error 3') // will launch 'Error 3'
+            },
+            function Error_on_payment(data) {
+                if (!data) throw new Error('Error on payment') // will launch 'Error on payment'
+            },
+        ])
+        //...
+        const iterator = errors()
+        iterator.checkAll()
+    */
+    checkAll: (...args: any) => never;
 }
 export interface contextFunctions {
     methods: ReturnInterator;

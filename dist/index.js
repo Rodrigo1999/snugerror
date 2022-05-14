@@ -88,8 +88,9 @@ function handleError(errorsDictionary, errors) {
                     methods: {
                         next: this.next.bind(_this),
                         repeatNext: this.repeatNext.bind(_this),
-                        message: _this.message,
                         error: this.error.bind(_this),
+                        checkAll: this.checkAll.bind(_this),
+                        message: _this.message,
                         errors: this.errors
                     },
                     throw: methods.throw
@@ -134,6 +135,16 @@ function handleError(errorsDictionary, errors) {
                 throw new Error("Invalid position: ".concat(positionName));
             return _this_1.next.apply(__assign(__assign(__assign({ params: others }, methods), _this_1), { position: position }), args);
         }; };
+        this.checkAll = function () {
+            var _this_1 = this;
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            errors === null || errors === void 0 ? void 0 : errors.forEach(function () {
+                _this_1.next.apply(__assign(__assign({}, _this_1), { message: _this_1.message }), args);
+            });
+        };
         return this;
     }
     return Interator.bind({});
